@@ -1,0 +1,17 @@
+https://github.com/herachxx/ico-2027
+https://github.com/bysmaks/ico-tasks
+https://github.com/Gallopsled/pwntools
+https://github.com/NationalSecurityAgency/ghidra
+https://github.com/swisskyrepo/PayloadsAllTheThings
+https://github.com/danielmiessler/SecLists
+https://github.com/carlospolop/hacktricks
+https://github.com/ctf-wiki/ctf-wiki
+https://github.com/volatilityfoundation/volatility3
+https://pwn.college/
+https://cryptohack.org/
+https://cryptopals.com/
+https://portswigger.net/web-security
+https://ropemporium.com/
+https://www.wireshark.org/
+https://github.com/openai/codex
+https://www.kali.org/docs/general-use/python3-external-packages/

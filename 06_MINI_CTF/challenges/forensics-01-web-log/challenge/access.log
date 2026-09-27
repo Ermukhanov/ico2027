@@ -1,0 +1,4 @@
+2026-09-01T10:00:02Z INFO user=guest GET /
+2026-09-01T10:00:04Z WARN user=guest GET /download?ref=guide
+2026-09-01T10:00:07Z INFO proxy GET /note?data=SUNPe2xvZ3Nfa2VlcF9hX3RpbWVsaW5lfQ==
+2026-09-01T10:00:08Z INFO user=guest GET /logout
