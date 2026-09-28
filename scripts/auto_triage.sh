@@ -104,4 +104,4 @@ strings -a -n 6 "$F" 2>/dev/null | grep -Ei 'flag|ico\{|key|pass|token|secret|ht
 echo
 echo "==================== РЕКОМЕНДАЦИЯ ===================="
 echo "Похожие категории: ${CATS[*]:-неясно, проверь вручную}"
-echo "Дальше открой ONE_PAGE.md -> раздел по категории выше."
+echo "Дальше открой MAIN_CHEATSHEET.md -> раздел по категории выше."
