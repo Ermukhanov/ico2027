@@ -2,9 +2,28 @@
 """
 rsa_auto.py — пробует несколько путей решения RSA-задачи по очереди,
 вместо того чтобы упасть на первой же непригодной попытке.
-Использование: python3 rsa_auto.py N E C
+
+Использование:
+  python3 rsa_auto.py N E C          # числа сразу, каждое отдельным аргументом
+  python3 rsa_auto.py message.txt    # ИЛИ просто путь к файлу задания —
+                                      # скрипт сам найдёт строки n=/e=/c= внутри
 """
 import sys
+import re
+
+def parse_from_file(path):
+    with open(path, 'r', errors='ignore') as f:
+        content = f.read()
+    vals = {}
+    for key in ('n', 'e', 'c'):
+        m = re.search(rf'{key}\s*=\s*(\d+)', content)
+        if m:
+            vals[key] = int(m.group(1))
+    if not all(k in vals for k in ('n', 'e', 'c')):
+        missing = [k for k in ('n', 'e', 'c') if k not in vals]
+        print(f"[-] Не нашёл в файле: {missing}. Проверь файл глазами (cat {path}) и подставь числа вручную.")
+        sys.exit(1)
+    return vals['n'], vals['e'], vals['c']
 
 def bytes_from_int(m):
     try:
@@ -23,10 +42,15 @@ def try_print(label, m):
             pass
 
 def main():
-    if len(sys.argv) != 4:
-        print("usage: rsa_auto.py N E C")
+    if len(sys.argv) == 2:
+        # один аргумент — путь к файлу задания, парсим сами
+        n, e, c = parse_from_file(sys.argv[1])
+        print(f"[*] Найдено в файле: n({n.bit_length()} бит), e={e}")
+    elif len(sys.argv) == 4:
+        n, e, c = (int(x) for x in sys.argv[1:4])
+    else:
+        print("usage: rsa_auto.py N E C   ИЛИ   rsa_auto.py путь_к_файлу")
         sys.exit(1)
-    n, e, c = (int(x) for x in sys.argv[1:4])
 
     print(f"n bits: {n.bit_length()}, e = {e}")
 
